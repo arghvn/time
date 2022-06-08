@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+
 	p := fmt.Println
 
 	//Here’s a basic example of formatting a time according to RFC3339, using the corresponding layout constant.
