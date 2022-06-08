@@ -1,5 +1,7 @@
 package main
 
+//Go supports time formatting and parsing via pattern-based layouts.
+
 import (
 	"fmt"
 	"time"
@@ -7,6 +9,10 @@ import (
 
 func main() {
 	p := fmt.Println
+
+	//Here’s a basic example of formatting a time according to RFC3339, using the corresponding layout constant.
+
+	//Time parsing uses the same layout values as Format.
 
 	t := time.Now()
 	p(t.Format(time.RFC3339))
@@ -31,3 +37,22 @@ func main() {
 	_, e = time.Parse(ansic, "8:41PM")
 	p(e)
 }
+
+//Format and Parse use example-based layouts.
+//Usually you’ll use a constant from time for these layouts,
+// but you can also supply custom layouts. Layouts must use the reference time wed
+//Jan 8 15:04:05 MST 2022 to show the pattern with which to format/parse a given time/string.
+
+//For purely numeric representations you can also use standard string formatting
+//with the extracted components of the time value.Parse will return an error on malformed input explaining the parsing problem.
+
+// output :
+
+// 2022-06-15T18:00:15-07:00
+// 2022-06-08 22:08:41 +0000 +0000
+// 6:00PM
+// Tue jan 15 18:00:15 2022
+// 2022-04-15T18:00:15.161182-07:00
+// 0000-01-01 20:41:00 +0000 UTC
+// 2022-04-15T18:00:15-00:00
+// parsing time "8:41PM" as "wed Jan _2 15:04:05 2022"
